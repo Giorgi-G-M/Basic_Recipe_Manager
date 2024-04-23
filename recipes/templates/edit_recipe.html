@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Edit Recipe</title>
+</head>
+<body>
+    <h1>{%if recipe%}
+        {{recipe.name}}
+        {%else%}Add a New Recipe 
+        {%endif%}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Recipe</button>
+    </form>
+    <a href="{% url 'home' %}">Back to Recipes</a>
+</body>
+</html>
